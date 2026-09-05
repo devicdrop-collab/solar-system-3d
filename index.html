@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Solar System 3D Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div id="loader">
+    <div class="loader-content">
+      <div class="loader-logo">☉</div>
+      <h1>Solar System 3D</h1>
+      <p class="loader-subtitle">Učitavanje svemira...</p>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <p class="progress-text" id="progressText">0%</p>
+    </div>
+  </div>
+
+  <div id="hud" class="hidden">
+    <div class="hud-left"><span class="logo">☉ Solar System</span></div>
+    <div class="hud-center">
+      <button id="btnPause" class="hud-btn" title="Pauza / Play">⏸</button>
+      <button class="hud-btn active" data-speed="1">1×</button>
+      <button class="hud-btn" data-speed="5">5×</button>
+      <button class="hud-btn" data-speed="20">20×</button>
+      <button id="btnReset" class="hud-btn" title="Reset kamere">⌂</button>
+    </div>
+    <div class="hud-right">
+      <button id="btnFullscreen" class="hud-btn" title="Fullscreen">⛶</button>
+    </div>
+  </div>
+
+  <div id="planetPanel" class="planet-panel hidden">
+    <button class="panel-close" id="panelClose">×</button>
+    <div class="panel-header">
+      <div class="panel-icon" id="panelIcon">🌍</div>
+      <h2 id="panelName">Earth</h2>
+    </div>
+    <div class="panel-body">
+      <div class="stat-row"><span>Prečnik</span><strong id="panelRadius">—</strong></div>
+      <div class="stat-row"><span>Nagib</span><strong id="panelTilt">—</strong></div>
+      <div class="stat-row"><span>Rotacija</span><strong id="panelRotation">—</strong></div>
+      <div class="stat-row"><span>Orbita</span><strong id="panelOrbit">—</strong></div>
+      <div class="stat-row"><span>Udaljenost</span><strong id="panelDistance">—</strong></div>
+      <div class="stat-row"><span>Meseci</span><strong id="panelMoons">—</strong></div>
+      <p class="panel-info" id="panelInfo"></p>
+    </div>
+  </div>
+
+  <div id="hint" class="hint hidden">
+    Prevuci za rotaciju · Skroluj za zum · Klikni planetu za detalje
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
